@@ -92,7 +92,7 @@ table abcd created.
 ## Usage
 And use like this
 ```bash
-ctas.cmd -d [schema name] => drop all tables in specified schema
-ctas.cmd -c [schema name] => create all tables in specified schema
+ctas.cmd -d [schema name] => drop all tables in specified schema of tibero
+ctas.cmd -c [schema name] => create all tables in specified schema of tibero
 ex> ctas.cmd -d rbyouth
     ctas.cmd -c rbyouth
