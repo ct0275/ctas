@@ -16,11 +16,11 @@ ctas is a tiny batch file on windows, so it needs some install before use.
 >
 > https://www.oracle.com/kr/java/technologies/javase/javase8-archive-downloads.html
 >
-### 2. Tibero database & java gateway
+### 2. Target tibero database & java gateway
 >
 > <span style='color: #9061ff'> Timaxsoft tibero java gateway </spqn>
 >
-> tbjavagw 6.0
+> tibero 6.0, tbjavagw 6.0
 >
 > https://technet.tmaxsoft.com/ko/front/download/viewDownload.do?cmProductCode=0301&version_seq=PVER-20150504-000001&doc_type_cd=DN
 ### 3. Source heterogeneous databases like Mssql, Maria, Oracle, Sybase and so on
