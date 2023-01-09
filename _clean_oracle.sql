@@ -1,0 +1,53 @@
+-- CTAS문 생성
+--select 'CREATE TABLE ' || a.OWNER || '.' || a.table_name || ' AS SELECT * FROM ' || a.OWNER || '.' || a.table_name || ';'
+--FROM dba_tables a where owner IN ('COUNSEL', 'KDREAM');
+--select 'CREATE TABLE U_' || a.OWNER || '.' || a.table_name || ' AS SELECT * FROM ' || a.OWNER || '.' || a.table_name || ';'
+--FROM dba_tables a where owner IN ('CARE','DREAM','SIMTER','COUNSEL','SIM','JIKIMI','COUNSEL2','SIM01','SIM02');
+
+-- CLOB변형에 48시간 초과됨, 이관DB는 그냥 949로....
+--[CYSNET]
+---- 트리거 비활성화 (캐릭터셋)
+--SELECT 'ALTER TRIGGER ' || owner || '.' || trigger_name || ' DISABLE;' FROM DBA_TRIGGERS WHERE owner IN ('COUNSEL', 'KDREAM');
+--
+---- ASIS 문자열 크기 강제업데이트 MSWIN949 -> UTF8은 한글저장 1.5배 공간이 필요함 (캐릭터셋)
+--select 'ALTER TABLE ' || a.OWNER || '.' || a.table_name || ' MODIFY ' || b.column_name || ' VARCHAR2(' || round(b.data_length * 1.5, 0) || ');'
+--FROM dba_tables a, DBA_TAB_COLUMNS b
+--WHERE a.owner = b.owner
+-- AND a.table_name = b.table_name
+-- AND b.data_type  LIKE '%CHAR%'
+-- AND a.owner IN ('COUNSEL', 'KDREAM');
+---- 4천이상사이즈 CLOB변경, 시간오래걸려서 병렬힌트주고 DROP COLLUMN 대신 RENAME을 변경함 NVARCHAR는 2천글자가 최대여서 CLOB으로 (캐릭터셋)
+--select 'ALTER TABLE ' || a.OWNER || '.' || a.table_name || ' ADD ' || b.column_name || '_clob clob;' || chr(13) || chr(10) ||
+--       'UPDATE /*+ parallel(8) */ ' || a.OWNER || '.' || a.table_name || ' SET ' || b.column_name || '_clob = ' || b.column_name || ' WHERE ' || b.column_name || ' IS NOT NULL;' || chr(13) || chr(10) ||
+--       'ALTER TABLE '|| a.OWNER || '.' || a.table_name || ' SET UNUSED (' || b.column_name || ');' || chr(13) || chr(10) ||
+--       'ALTER TABLE '|| a.OWNER || '.' || a.table_name || ' RENAME COLUMN ' || b.column_name || '_clob TO ' || b.column_name || ';'
+--FROM dba_tables a, DBA_TAB_COLUMNS b
+--WHERE a.owner = b.owner
+-- and a.table_name = b.table_name
+-- AND b.data_type  LIKE '%CHAR%'
+-- AND DATA_LENGTH = 4000
+-- AND a.owner IN ('COUNSEL', 'KDREAM');
+--
+-- [ORCL]
+-- -- 트리거 비활성화 (캐릭터셋)
+--SELECT 'ALTER TRIGGER ' || owner || '.' || trigger_name || ' DISABLE;' FROM DBA_TRIGGERS WHERE owner IN ('CARE','DREAM','SIMTER','COUNSEL','SIM','JIKIMI','COUNSEL2','SIM01','SIM02');
+--
+---- ASIS 문자열 크기 강제업데이트 MSWIN949 -> UTF8은 한글저장 1.5배 공간이 필요함 (캐릭터셋)
+-- select 'ALTER TABLE ' || a.OWNER || '.' || a.table_name || ' MODIFY ' || b.column_name || ' VARCHAR2(' || round(b.data_length * 1.5, 0) || ');'
+--FROM dba_tables a, DBA_TAB_COLUMNS b
+--WHERE a.owner = b.owner
+-- AND a.table_name = b.table_name
+-- AND b.data_type  LIKE '%CHAR%'
+-- AND a.owner IN ('CARE','DREAM','SIMTER','COUNSEL','SIM','JIKIMI','COUNSEL2','SIM01','SIM02');
+---- 4천이상사이즈 CLOB변경, 시간오래걸려서 병렬힌트주고 DROP COLLUMN 대신 RENAME을 변경함 NVARCHAR는 2천글자가 최대여서 CLOB으로 (캐릭터셋)
+--select 'ALTER TABLE ' || a.OWNER || '.' || a.table_name || ' ADD ' || b.column_name || '_clob clob;' || chr(13) || chr(10) ||
+--       'UPDATE /*+ parallel(8) */ ' || a.OWNER || '.' || a.table_name || ' SET ' || b.column_name || '_clob = ' || b.column_name || ' WHERE ' || b.column_name || ' IS NOT NULL;' || chr(13) || chr(10) ||
+--       'ALTER TABLE '|| a.OWNER || '.' || a.table_name || ' SET UNUSED (' || b.column_name || ');' || chr(13) || chr(10) ||
+--       'ALTER TABLE '|| a.OWNER || '.' || a.table_name || ' RENAME COLUMN ' || b.column_name || '_clob TO ' || b.column_name || ';'
+--FROM dba_tables a, DBA_TAB_COLUMNS b
+--WHERE a.owner = b.owner
+-- and a.table_name = b.table_name
+-- AND b.data_type  LIKE '%CHAR%'
+-- AND DATA_LENGTH = 4000
+-- AND a.owner IN ('CARE','DREAM','SIMTER','COUNSEL','SIM','JIKIMI','COUNSEL2','SIM01','SIM02');
+

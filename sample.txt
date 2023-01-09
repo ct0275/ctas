@@ -1,0 +1,82 @@
+COUNSEL
+KDREAM
+
+CARE
+DREAM
+SIMTER
+U_COUNSEL
+U_SIM
+U_JIKIMI
+U_COUNSEL2
+U_SIM01
+U_SIM02
+
+NEWWEB
+CHATTING
+HRDDB
+
+RBYOUTH
+P@ssw0rd
+ctas.cmd -d counsel
+ctas.cmd -d kdream
+ctas.cmd -d care
+ctas.cmd -d dream
+ctas.cmd -d simter
+ctas.cmd -d u_counsel
+ctas.cmd -d u_sim
+ctas.cmd -d u_jikimi
+ctas.cmd -d u_counsel2
+ctas.cmd -d u_sim01
+ctas.cmd -d u_sim02
+ctas.cmd -d newweb
+ctas.cmd -d chatting
+ctas.cmd -d hrddb
+ctas.cmd -d education
+ctas.cmd -d rbyouth
+
+ctas.cmd -c counsel
+ctas.cmd -c counsel_b1
+ctas.cmd -c counsel_b2
+ctas.cmd -c counsel_b3
+ctas.cmd -c kdream
+ctas.cmd -c kdream_b1
+ctas.cmd -c care
+ctas.cmd -c dream
+ctas.cmd -c simter
+ctas.cmd -c u_counsel
+ctas.cmd -c u_sim
+ctas.cmd -c u_jikimi
+ctas.cmd -c u_counsel2
+ctas.cmd -c u_sim01
+ctas.cmd -c u_sim02
+ctas.cmd -c newweb
+ctas.cmd -c chatting
+ctas.cmd -c hrddb
+ctas.cmd -c education
+ctas.cmd -c rbyouth
+
+
+select count(1) from dba_tables where owner = 'COUNSEL';
+select count(1) from dba_tables where owner = 'KDREAM';
+select count(1) from dba_tables where owner = 'CARE';
+select count(1) from dba_tables where owner = 'DREAM';
+select count(1) from dba_tables where owner = 'SIMTER';
+select count(1) from dba_tables where owner = 'U_COUNSEL';
+select count(1) from dba_tables where owner = 'U_SIM';
+select count(1) from dba_tables where owner = 'U_JIKIMI';
+select count(1) from dba_tables where owner = 'U_COUNSEL2';
+select count(1) from dba_tables where owner = 'U_SIM01';
+select count(1) from dba_tables where owner = 'U_SIM02';
+select count(1) from dba_tables where owner = 'NEWWEB';
+select count(1) from dba_tables where owner = 'NEWWEB_DBO';
+select count(1) from dba_tables where owner = 'CHATTING';
+select count(1) from dba_tables where owner = 'CHATTING_DBO';
+select count(1) from dba_tables where owner = 'HRDDB_DBO';
+select count(1) from dba_tables where owner = 'EDUCATION_DBO';
+select count(1) from dba_tables where owner = 'RBYOUTH';
+
+
+alter tablespace ts_counsel add datafile 'E:\TmaxData\tibero6\database\tibero\counsel_13.dbf' size 10G;
+alter tablespace ts_kdream add datafile 'E:\TmaxData\tibero6\database\tibero\kdream_08.dbf' size 10G;
+alter tablespace ts_kdream add datafile 'E:\TmaxData\tibero6\database\tibero\kdream_09.dbf' size 10G;
+alter tablespace ts_simter add datafile 'E:\TmaxData\tibero6\database\tibero\simter_02.dbf' size 10G;
