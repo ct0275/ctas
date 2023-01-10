@@ -2,7 +2,7 @@
 Create tibero tables as select from heterogeneous databases
 
 ## What does it?
-I don't want to make something that already exists, remaking what already exists is stupid like create tables with coding ddl, even from another world.
+I always don't like to make something that already exists, remaking what already exists is stupid like create tables with coding ddl, even from another world.
 
 This ctas script make all tibero tables came from another worlds, using awsome private schema option.
 
