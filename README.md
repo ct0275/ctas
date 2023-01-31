@@ -8,7 +8,7 @@ This ctas script make all tibero tables came from another worlds, using awsome p
 
 ## Prerequisites
 ctas is a tiny batch file on windows, so it needs some install before use.
-Especially, tibero db link works well with another databases for tibero java gateway, basically it works on jdbc library.
+Especially, tibero db link works well with another databases for using tibero java gateway, basically it works on jdbc library.
 You can use like this.
 ```sql
 select * from tab1@oracle;
