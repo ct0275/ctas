@@ -92,7 +92,7 @@ What do you think of this simplicity?
 
 ```bash
 # ctas.cmd 
-
+For example, rbyouth is a db name and schema name also, came from MariaDb.
 C:\Users\imuser\migration>ctas.cmd -d rbyouth
 table abcd drop.
 ...
